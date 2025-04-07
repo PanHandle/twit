@@ -1,0 +1,52 @@
+{
+  "settings": {
+    "load_globals": true,
+    "parallel_twits": 4,
+    "default_reference": "docs",
+	"default_directory": "~/Documents/Programming/Shell/Bash",
+	"default_remote": "https://github.com/PanHandle",
+    "default_command": "pwd; ls",
+	"create_missing_path": true
+  },
+  "global_env": {
+    "bango": "test_data"
+  },
+  "manifest": {
+    "docs": {
+      "path": "~/Documents",
+      "env": {
+        "bingo": "bango",
+        "bongo": "${bingo}",
+        "bungo": "$(ls | rev)"
+      }
+    },
+    "pics": {
+      "path": "~/Pictures"
+    },
+    "down": {
+      "path": "~/Downloads"
+    },
+    "vids": {
+      "path": "~/Videos",
+      "env": {
+        "uwu": "owo"
+      }
+    },
+    "song": {
+      "path": "~/Music/and/lyrics"
+    },
+    "empty_ref": {},
+    "twit": {
+      "path": "@/Twit",
+      "remote": "@/twit"
+    }
+  },
+  "groups": {
+    "default": ["down", "docs", "vids"],
+    "secondary": ["song", "pics"],
+    "super": ["@default", "@secondary"],
+    "recursive": ["@recursive"],
+    "broken": ["up", "down"],
+    "empty": []
+  }
+}
