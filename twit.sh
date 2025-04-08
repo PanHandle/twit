@@ -39,7 +39,7 @@ function mkent() {
 }
 
 # --- Twit's Config Management
-if [[ -s "${WIT_DEFAULT_SRC}" ]]; then
+if ! [[ -s "${WIT_DEFAULT_SRC}" ]]; then
 	cat <<EOF | sed 's/,}/}/' | jq '.' >"${WIT_DEFAULT_SRC}"
 {"settings": {
     "load_globals": true,
@@ -288,10 +288,6 @@ function twit() {
 					command="${1}"
 				fi
 				shift 1
-				if [[ "${command}" == "cd" ]]; then
-					_twit_debug "That 'aint the best way ${USER}, I'm not doing anything. 😪"
-					return 1
-				fi
 				eval "
 $(twit_env "${manifest_reference}")
 ${command:-$twit_default_command} ${@} "
